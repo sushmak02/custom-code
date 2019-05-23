@@ -1,0 +1,15 @@
+function offcanvas_custom_script() {
+?>
+<script type="text/javascript">
+
+jQuery(function($) {
+   $( '.elementor-button-link' ).click( function () {
+        var $canvas = $( '.uael-offcanvas-show' ).attr( 'id' );
+        $canvas_id = $canvas.substring( $canvas.indexOf('-') + 1 ); 
+        OffCanvas._close( $canvas_id );
+    });
+});
+</script>
+<?php
+}
+add_action( 'wp_footer', 'offcanvas_custom_script' );

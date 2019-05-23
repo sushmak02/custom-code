@@ -1,0 +1,16 @@
+function modal_custom_script() {
+?>
+<script type="text/javascript">
+jQuery(function($) {
+    $( window ).on( 'uael_before_modal_popup_open', function( e, id ) {
+        if( $( '.uael-modal.uael-show' ).length ) {
+            $prev_modal = $( '.uael-modal.uael-show' ).attr( 'id' );
+            $prev_modal_id = $prev_modal.substring( $prev_modal.indexOf('-') + 1 );
+            UAELModalPopup._close( $prev_modal_id );
+        }
+    });
+});
+</script>
+<?php
+}
+add_action( 'wp_footer', 'modal_custom_script' );
